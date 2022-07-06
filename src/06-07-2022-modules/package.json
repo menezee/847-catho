@@ -1,0 +1,18 @@
+{
+  "name": "06-07-2022-modules",
+  "version": "0.0.1",
+  "description": "nosso pacote pra aprender nodejs",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [
+    "nodejs",
+    "letscode"
+  ],
+  "author": "Erich",
+  "license": "ISC",
+  "dependencies": {
+    "figlet": "^1.5.2"
+  }
+}
