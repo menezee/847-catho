@@ -13,8 +13,8 @@ npm run presentation --name=intro # name should be the mdx file name inside /cla
 ```
 
 ### Agenda
-1. [ ] O que é Node.js
-2. [ ] Como instalar
+1. [x] O que é Node.js
+2. [x] Como instalar
 3. [ ] Programação paralela, e.g. Promises, callbacks, eventos, async/await
 4. [ ] Módulo IO
 5. [ ] Módulo de rede, e.g. http, dns, url

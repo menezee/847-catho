@@ -1,0 +1,14 @@
+{
+  "name": "08-07-2022",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "devDependencies": {
+    "eslint": "^8.19.0",
+    "nodemon": "^2.0.19"
+  }
+}

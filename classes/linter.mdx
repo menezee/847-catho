@@ -1,0 +1,107 @@
+import { future } from '@mdx-deck/themes';
+export const theme = future;
+
+import { Block, Image } from './components';
+
+<Block centralized>
+  <ul>
+    <li>npm ↔ Yarn</li>
+    <li>Commonjs ↔ ES Modules</li>
+    <li>Linter</li>
+  </ul>
+</Block>
+
+---
+
+<Block>
+  <Block centralized>
+    <Image
+      src="https://seeklogo.com/images/E/eslint-logo-DDFB6EBCF6-seeklogo.com.png"
+      height={300}
+      width={300}
+    />
+  </Block>
+  <h1>ESLint</h1>
+  <h2>Importância / Configuração de Linter</h2>
+</Block>
+
+---
+
+<Block>
+  <h1>O que é?</h1>
+  <Block centralized>
+    <Image
+      src="https://media4.giphy.com/media/8rtbZnQ5yH2XtKHB3q/giphy.gif?cid=ecf05e47t8yjohs2lt8cuthsu33affthwfdheyttlkxm4jzx&rid=giphy.gif&ct=g"
+      height={600}
+      width={600}
+    />
+  </Block>
+</Block>
+
+---
+
+# O que é?
+
+- Ferramenta que identifica problemas no código
+- Convenções de sintaxe
+- Padrões definidos pelo time
+- Levanta advertências quando há algo errado
+
+---
+
+# ESLint
+
+- Ferramenta de linter para JavaScript escrita em Node.js
+- Regras definidas dentro de .eslintrc
+- Como JavaScript é uma linguagem interpretada, muitos erros aparecem em runtime
+- Identifica problemas no código
+  - Loops infinitos
+  - Métodos get retornam algo
+  - Evita que console.logs fiquem pelo código
+  - Duplicação em switch cases
+  - Código inalcançável
+  - JSDoc
+
+---
+
+# ESLint
+[Lista de regras](https://eslint.org/docs/rules/)
+<Image
+  src="https://i.ibb.co/FVgBjsN/Screen-Shot-2022-02-14-at-18-22-03.png"
+/>
+
+---
+
+# Código sem linter
+<Block centralized>
+  <Image
+    src="https://i.ibb.co/Dr0c4Zq/Screen-Shot-2022-02-14-at-18-58-38.png"
+    height={500}
+    width={1200}
+  />
+</Block>
+
+---
+
+# Código com linter
+<Block centralized>
+  <Image
+    src="https://i.ibb.co/VgzV54r/Screen-Shot-2022-02-14-at-19-02-43.png"
+    height={500}
+    width={1200}
+  />
+</Block>
+
+---
+
+# Regras
+- quotes
+- semi
+- space-before-function-paren
+- no-multi-spaces
+- eol-last
+
+---
+
+# ESLint
+## [Instalação](https://eslint.org/docs/user-guide/getting-started)

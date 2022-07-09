@@ -5,3 +5,6 @@
   - Utilizar Commonjs, i.e. `module.exports` e `require('./path')`
 - Criar projeto usando `npm init`
 - Projeto deve rodar no terminal através do comando `npm start`
+
+## Exercício para fazer em casa
+- Instalar um pacote do NPM e criar um arquivo javascript que importe e use esse pacote.
