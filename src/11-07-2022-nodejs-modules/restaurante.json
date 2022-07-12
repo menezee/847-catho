@@ -1,0 +1,8 @@
+{
+  "nome": "Guacamole",
+  "tipo": "mexicano",
+  "comidas": [
+    { "nome": "burrito", "preco": 10 },
+    { "nome": "nachos", "preco": 5 }
+  ]
+}

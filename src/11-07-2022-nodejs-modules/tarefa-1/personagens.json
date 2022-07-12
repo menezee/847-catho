@@ -1,0 +1,22 @@
+[
+  {
+    "nome": "Mike",
+    "nascimento": "07/04/1972",
+    "cidade": ["Hawkins"]
+  },
+  {
+    "nome": "Eleven",
+    "nascimento": "06/1971",
+    "cidade": ["Hawkins", "Lenora Hills"]
+  },
+  {
+    "nome": "Will Byers",
+    "nascimento": "22/03/1971",
+    "cidade": ["Hawkins", "Lenora Hills"]
+  },
+  {
+    "nome": "Jim Hopper",
+    "nascimento": "08/1941",
+    "cidade": ["Hawkins", "New York City", "Russia"]
+  }
+]

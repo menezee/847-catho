@@ -1,0 +1,344 @@
+import {
+  CodeSurfer,
+  CodeSurferColumns,
+  Step,
+} from "code-surfer";
+import { github, vsDark } from "@code-surfer/themes";
+
+import { future } from '@mdx-deck/themes';
+export const theme = future;
+
+import { Block, Image } from './components';
+
+<Block>
+  <h2>Checkpoint</h2>
+</Block>
+
+---
+
+# Tópicos que já vimos
+- O que é Node.js
+- Como importar/exportar funções e objetos
+- NPM
+  - Instalar pacotes
+  - Criar scripts
+
+---
+
+<CodeSurfer>
+
+```js title="cumprimento.js"
+function cumprimentar(nome) {
+  console.log(`Olá, ${nome}!`);
+}
+```
+
+```js title="cumprimento.js"
+function cumprimentar(nome) {
+  console.log(`Olá, ${nome}!`);
+}
+
+module.exports = cumprimentar;
+```
+
+```js title="index.js"
+const cumprimentar = require('./cumprimento');
+```
+
+```js title="index.js"
+const cumprimentar = require('./cumprimento');
+
+const nome = 'Let\s Code';
+cumprimentar(nome);
+```
+
+```js title="index.js"
+const cumprimentar = require('./cumprimento');
+
+const nome = 'Let\s Code';
+cumprimentar(nome);
+// → Olá, Let's Code!
+```
+
+```js title="cumprimento.js"
+function cumprimentar(nome) {
+  console.log(`Olá, ${nome}!`);
+}
+
+module.exports = cumprimentar;
+```
+
+```js title="cumprimento.js"
+function cumprimentar(nome) {
+  console.log(`Olá, ${nome}!`);
+}
+
+exports.cumprimentar = cumprimentar;
+```
+
+```js title="index.js"
+const cumprimentar = require('./cumprimento');
+
+const nome = 'Let\s Code';
+cumprimentar(nome);
+```
+
+```js title="index.js"
+const { cumprimentar } = require('./cumprimento');
+
+const nome = 'Let\s Code';
+cumprimentar(nome);
+```
+
+```js title="cumprimento.js"
+function cumprimentar(nome) {
+  console.log(`Olá, ${nome}!`);
+}
+
+exports.cumprimentar = cumprimentar;
+```
+
+```js title="cumprimento.js"
+export function cumprimentar(nome) {
+  console.log(`Olá, ${nome}!`);
+}
+```
+
+```js title="package.json"
+{
+  "type": <module | commonjs>
+}
+```
+
+```js title="package.json"
+{
+  "type": "module"
+}
+```
+
+```js title="index.js"
+const { cumprimentar } = require('./cumprimento');
+
+const nome = 'Let\s Code';
+cumprimentar(nome);
+```
+
+```js title="index.js"
+import { cumprimentar } from './cumprimento.js';
+
+const nome = 'Let\s Code';
+cumprimentar(nome);
+```
+
+```js title="cumprimento.js"
+export function cumprimentar(nome) {
+  console.log(`Olá, ${nome}!`);
+}
+```
+
+```js title="cumprimento.js"
+function cumprimentar(nome) {
+  console.log(`Olá, ${nome}!`);
+}
+
+export default cumprimentar;
+```
+
+```js title="index.js"
+import { cumprimentar } from './cumprimento.js';
+
+const nome = 'Let\s Code';
+cumprimentar(nome);
+```
+
+```js title="index.js"
+import cumprimentar from './cumprimento.js';
+
+const nome = 'Let\s Code';
+cumprimentar(nome);
+```
+
+```js title="index.js"
+import qualquerCoisa from './cumprimento.js';
+
+const nome = 'Let\s Code';
+qualquerCoisa(nome);
+```
+
+</CodeSurfer>
+
+---
+
+# NPM
+
+---
+
+<CodeSurfer>
+
+```shell title="npm"
+npm install <dependencia>
+```
+
+```shell title="npm"
+npm install express
+```
+
+```shell title="npm"
+npm install --save express
+```
+
+```shell title="npm"
+npm install --save-dev express
+```
+
+```shell title="npm"
+npm i express
+```
+
+```shell title="npm"
+npm i -D express
+```
+
+```json title="package.json"
+{
+  "dependencies": {
+
+  }
+}
+```
+
+```json title="package.json"
+{
+  "dependencies": {
+    tudo que sua aplicação depende
+  }
+}
+```
+
+```json title="package.json"
+{
+  "dependencies": {
+    tudo que sua aplicação depende
+  },
+  "devDependencies": "{
+
+  }
+}
+```
+
+```json title="package.json"
+{
+  "dependencies": {
+    tudo que sua aplicação depende
+  },
+  "devDependencies": "{
+    tudo que sua aplicação não depende
+  }
+}
+```
+
+```json title="package.json"
+{
+  "dependencies": {
+    tudo que sua aplicação depende
+  },
+  "devDependencies": "{
+    tudo que sua aplicação não depende 🤪
+  }
+}
+```
+
+```json title="package.json"
+{
+  "dependencies": {
+    tudo que sua aplicação depende
+  },
+  "devDependencies": "{
+    testes, linter, nodemon...
+  }
+}
+```
+
+```json title="package.json"
+{
+  "scripts": {
+
+  }
+}
+```
+
+```json title="package.json"
+{
+  "scripts": {
+    "start": "node index.js"
+  }
+}
+```
+
+```shell title="terminal"
+npm run start
+```
+
+</CodeSurfer>
+
+---
+
+# REPL
+
+---
+
+# REPL
+read–eval–print loop
+
+---
+
+<CodeSurfer>
+
+```shell title="terminal"
+node
+```
+
+```shell title="terminal"
+Welcome to Node.js v16.15.0.
+Type ".help" for more information.
+
+>
+```
+
+```shell title="terminal"
+Welcome to Node.js v16.15.0.
+Type ".help" for more information.
+
+> const arr = [1, 2, 3, 4, 5];
+```
+
+```shell title="terminal"
+Welcome to Node.js v16.15.0.
+Type ".help" for more information.
+
+> const arr = [1, 2, 3, 4, 5];
+undefined
+```
+
+```shell title="terminal"
+Welcome to Node.js v16.15.0.
+Type ".help" for more information.
+
+> const arr = [1, 2, 3, 4, 5];
+undefined
+
+> arr.filter(el => el > 3);
+```
+
+```shell title="terminal"
+Welcome to Node.js v16.15.0.
+Type ".help" for more information.
+
+> const arr = [1, 2, 3, 4, 5];
+undefined
+
+> arr.filter(el => el > 3);
+[ 4, 5 ]
+```
+
+</CodeSurfer>
