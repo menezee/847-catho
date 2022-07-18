@@ -1,0 +1,174 @@
+import {
+  CodeSurfer,
+  CodeSurferColumns,
+  Step,
+} from "code-surfer";
+import { github, vsDark } from "@code-surfer/themes";
+
+import { future } from '@mdx-deck/themes';
+export const theme = future;
+
+import { Block, Image } from './components';
+
+# Network
+
+---
+
+## letscode.com.br
+
+---
+
+## 54.233.196.166
+
+---
+
+<CodeSurfer>
+
+```js title="dns"
+const dns = require('dns');
+
+const website = 'letscode.com.br';
+
+dns.lookup(website, callback);
+```
+
+```js title="dns"
+const dns = require('dns');
+
+const website = 'letscode.com.br';
+
+dns.lookup(website, (err, address, family) => {
+  console.log({
+    err,
+    address,
+    family: `IPv${family}`,
+  });
+});
+```
+
+```js title="dns"
+{ err: null, address: '52.67.216.26', family: 'IPv4' }
+```
+
+```js title="dns"
+const dns = require('dns');
+
+const resourceRecordtype = 'A';
+const website = 'letscode.com.br';
+
+dns.resolve(website, resourceRecordtype, callback);
+```
+
+```js title="dns"
+const dns = require('dns');
+
+const resourceRecordtype = 'A';
+const website = 'letscode.com.br';
+
+dns.resolve(website, resourceRecordtype, (err, records) => {
+  console.log({ err, records });
+});
+```
+
+```js title="dns"
+{ err: null, records: [ '52.67.216.26', '54.233.196.166' ] }
+```
+
+```js title="http"
+const http = require('http');
+```
+
+```js title="http"
+const http = require('http');
+
+const server = http.createServer();
+```
+
+```js title="http"
+const http = require('http');
+
+const server = http.createServer();
+
+server.on('request', (req, res) => {
+
+});
+```
+
+```js title="http"
+const http = require('http');
+
+const server = http.createServer();
+
+server.on('request', (req, res) => {
+
+});
+
+server.listen(8080);
+```
+
+```js title="http"
+const http = require('http');
+
+const server = http.createServer();
+
+server.on('request', (req, res) => {
+  res.write('Ola mundo!');
+  res.end();
+});
+
+server.listen(8080);
+```
+
+```js title="http"
+server.on('request', (req, res) => {
+  const { method, url } = req;
+
+  console.log({
+    method,
+    url
+  });
+});
+```
+
+```js title="http"
+{ method: 'GET', url: '/' }
+```
+
+```js title="http"
+-> http://localhost:3000/foo
+
+{ method: 'GET', url: '/foo' }
+```
+
+```js title="http"
+response.writeHead(200, {
+  'Content-Type': 'application/json',
+});
+```
+
+```js title="http"
+server.on('request', (req, res) => {
+  const { method, url } = req;
+
+  if (method === 'GET' && url === '/') {
+    res.statusCode = 200;
+    res.setHeader('Content-Type', 'application/json');
+    res.end(JSON.stringify({
+      escola: 'lets code',
+      ano: 2022,
+    }));
+  }
+});
+```
+
+</CodeSurfer>
+
+---
+
+## Auto reload no node.js?
+[nodemon](https://www.npmjs.com/package/nodemon)
+
+---
+
+- https://nodejs.dev/learn/making-http-requests-with-nodejs
+- https://nodejs.dev/learn/get-http-request-body-data-using-nodejs
