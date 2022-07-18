@@ -1,0 +1,438 @@
+import {
+  CodeSurfer,
+  CodeSurferColumns,
+  Step,
+} from "code-surfer";
+import { github, vsDark } from "@code-surfer/themes";
+
+import { future } from '@mdx-deck/themes';
+export const theme = future;
+
+import { Block, Image } from './components';
+
+<Block>
+  <h2>Programação assíncrona</h2>
+</Block>
+
+---
+
+<CodeSurfer>
+
+```js title="cotacao.js"
+function cotacao(partida, destino, data) {
+  return 42;
+}
+```
+
+```js title="cotacao.js"
+function cotacao(partida, destino, data) {
+  const passagens = buscaPassagens(partida, destino, data);
+  return buscaVooMaisBarato(passagens);
+}
+```
+
+```js title="cotacao.js"
+function cotacao(partida, destino, data) {
+   // 5 segundos
+  const passagens = buscaPassagens(partida, destino, data);
+
+  // 1 segundo
+  return buscaVooMaisBarato(passagens);
+}
+```
+
+```js title="cumprimento.js"
+function cumprimenta(nome) {
+  return `Olá, ${nome}!`;
+}
+```
+
+```js title="cumprimento.js"
+function cumprimenta(nome) {
+  // cumprimentar daqui a 5 segundos?
+}
+```
+
+```js title="cumprimento.js"
+function cumprimenta(nome) {
+  setTimeout();
+}
+```
+
+```js title="cumprimento.js"
+function cumprimenta(nome) {
+  setTimeout(() => {}, tempo);
+}
+```
+
+```js title="cumprimento.js"
+function cumprimenta(nome) {
+  setTimeout(() => {}, 5000);
+}
+```
+
+```js title="cumprimento.js"
+function cumprimenta(nome) {
+  setTimeout(() => {
+    return `Olá, ${nome}!`;
+  }, 5000);
+}
+```
+
+```js title="cumprimento.js"
+function cumprimenta(nome) {
+  setTimeout(() => {
+    return `Olá, ${nome}!`;
+  }, 5000);
+}
+
+const cumprimento = cumprimenta('Lets Code!');
+```
+
+```js title="cumprimento.js"
+function cumprimenta(nome) {
+  setTimeout(() => {
+    return `Olá, ${nome}!`;
+  }, 5000);
+}
+
+const cumprimento = cumprimenta('Lets Code!');
+→ cumprimento?
+```
+
+```js title="cumprimento.js"
+function cumprimenta(nome) {
+  setTimeout(() => {
+    return `Olá, ${nome}!`;
+  }, 5000);
+}
+```
+
+```js title="cumprimento.js"
+function cumprimenta(nome, callback) {
+  setTimeout(() => {
+    return `Olá, ${nome}!`;
+  }, 5000);
+}
+```
+
+```js title="cumprimento.js"
+function cumprimenta(nome, callback) {
+  setTimeout(() => {
+    callback(`Olá, ${nome}!`);
+  }, 5000);
+}
+```
+
+```js title="cumprimento.js"
+function cumprimenta(nome, callback) {
+  setTimeout(() => {
+    callback(`Olá, ${nome}!`);
+  }, 5000);
+}
+
+const cumprimento = cumprimenta('Lets Code!');
+```
+
+```js title="cumprimento.js"
+function cumprimenta(nome, callback) {
+  setTimeout(() => {
+    callback(`Olá, ${nome}!`);
+  }, 5000);
+}
+
+const cumprimento = cumprimenta('Lets Code!', () => {});
+```
+
+```js title="cumprimento.js"
+function cumprimenta(nome, callback) {
+  setTimeout(() => {
+    callback(`Olá, ${nome}!`);
+  }, 5000);
+}
+
+cumprimenta('Lets Code!', () => {});
+```
+
+```js title="cumprimento.js"
+function cumprimenta(nome, callback) {
+  setTimeout(() => {
+    callback(`Olá, ${nome}!`);
+  }, 5000);
+}
+
+cumprimenta('Lets Code!', (cumprimento) => {});
+```
+
+```js title="cumprimento.js"
+function cumprimenta(nome, callback) {
+  setTimeout(() => {
+    callback(`Olá, ${nome}!`);
+  }, 5000);
+}
+
+cumprimenta('Lets Code!', (cumprimento) => {
+  console.log(cumprimento);
+});
+```
+
+```js title="cumprimento.js"
+function cumprimenta(nome, callback) {
+  setTimeout(() => {
+    callback(`Olá, ${nome}!`);
+  }, 5000);
+}
+
+const cb = (cumprimento) => { console.log(cumprimento); };
+cumprimenta('Lets Code!', cb);
+```
+
+```js title="cumprimento.js"
+function cumprimenta(nome, callback) {
+  setTimeout(() => {
+    callback(`Olá, ${nome}!`);
+  }, 5000);
+}
+```
+
+```js title="cumprimento.js"
+function cumprimenta(nome) {
+  setTimeout(() => {
+    callback(`Olá, ${nome}!`);
+  }, 5000);
+}
+```
+
+```js title="cumprimento.js"
+function cumprimenta(nome) {
+  return new Promise();
+
+  // setTimeout(() => {
+  //   callback(`Olá, ${nome}!`);
+  // }, 5000);
+}
+```
+
+```js title="cumprimento.js"
+function cumprimenta(nome) {
+  return new Promise(() => {});
+
+  // setTimeout(() => {
+  //   callback(`Olá, ${nome}!`);
+  // }, 5000);
+}
+```
+
+```js title="cumprimento.js"
+function cumprimenta(nome) {
+  return new Promise((resolve, reject) => {});
+
+  // setTimeout(() => {
+  //   callback(`Olá, ${nome}!`);
+  // }, 5000);
+}
+```
+
+```js title="cumprimento.js"
+function cumprimenta(nome) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      callback(`Olá, ${nome}!`);
+    }, 5000);
+  });
+}
+```
+
+
+```js title="cumprimento.js"
+function cumprimenta(nome) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(`Olá, ${nome}!`);
+    }, 5000);
+  });
+}
+```
+
+```js title="cumprimento.js"
+function cumprimenta(nome) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(`Olá, ${nome}!`);
+    }, 5000);
+  });
+}
+
+cumprimenta('Lets Code!');
+```
+
+```js title="cumprimento.js"
+function cumprimenta(nome) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(`Olá, ${nome}!`);
+    }, 5000);
+  });
+}
+
+cumprimenta('Lets Code!').then();
+```
+
+```js title="cumprimento.js"
+function cumprimenta(nome) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(`Olá, ${nome}!`);
+    }, 5000);
+  });
+}
+
+cumprimenta('Lets Code!').then().catch();
+```
+
+```js title="cumprimento.js"
+function cumprimenta(nome) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(`Olá, ${nome}!`);
+    }, 5000);
+  });
+}
+
+cumprimenta('Lets Code!')
+  .then()
+  .catch();
+```
+
+```js title="cumprimento.js"
+function cumprimenta(nome) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(`Olá, ${nome}!`);
+    }, 5000);
+  });
+}
+
+cumprimenta('Lets Code!')
+  .then(() => {})
+  .catch(() => {});
+```
+
+```js title="cumprimento.js"
+function cumprimenta(nome) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(`Olá, ${nome}!`);
+    }, 5000);
+  });
+}
+
+cumprimenta('Lets Code!')
+  .then((cumprimento) => {})
+  .catch((erro) => {});
+```
+
+```js title="cumprimento.js"
+function cumprimenta(nome) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(`Olá, ${nome}!`);
+    }, 5000);
+  });
+}
+
+cumprimenta('Lets Code!')
+  .then((cumprimento) => {
+    console.log(cumprimento);
+  })
+  .catch((erro) => {});
+```
+
+```js title="cumprimento.js"
+function cumprimenta(nome) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(`Olá, ${nome}!`);
+    }, 5000);
+  });
+}
+
+cumprimenta('Lets Code!');
+```
+
+```js title="cumprimento.js"
+function cumprimenta(nome) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(`Olá, ${nome}!`);
+    }, 5000);
+  });
+}
+
+cumprimenta('Lets Code!');
+async function main() {}
+```
+
+```js title="cumprimento.js"
+function cumprimenta(nome) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(`Olá, ${nome}!`);
+    }, 5000);
+  });
+}
+
+async function main() {
+  const cumprimento = cumprimenta('Lets Code!');
+}
+```
+
+```js title="cumprimento.js"
+function cumprimenta(nome) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(`Olá, ${nome}!`);
+    }, 5000);
+  });
+}
+
+async function main() {
+  const cumprimento = await cumprimenta('Lets Code!');
+}
+```
+
+```js title="cumprimento.js"
+function cumprimenta(nome) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(`Olá, ${nome}!`);
+    }, 5000);
+  });
+}
+
+async function main() {
+  const cumprimento = await cumprimenta('Lets Code!');
+  console.log(cumprimento);
+}
+```
+
+```js title="cumprimento.js"
+function cumprimenta(nome) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(`Olá, ${nome}!`);
+    }, 5000);
+  });
+}
+
+async function main() {
+  try {
+    const cumprimento = await cumprimenta('Lets Code!');
+    console.log(cumprimento);
+  } catch (err) {
+    // tratar o erro
+  }
+}
+```
+
+</CodeSurfer>
