@@ -1,0 +1,674 @@
+import {
+  CodeSurfer,
+  CodeSurferColumns,
+  Step,
+} from "code-surfer";
+import { github, vsDark } from "@code-surfer/themes";
+
+import { future } from '@mdx-deck/themes';
+export const theme = future;
+
+import { Block, Image } from './components';
+
+# Dotenv
+# Luxon
+# Crypto
+
+---
+
+<Block>
+  <h1>Dotenv</h1>
+  Módulo que carrega variáveis de ambiente de um arquivo <span style="color: deepskyblue;">.env</span> para dentro do <span style="color: yellow;">process.env</span>.
+</Block>
+
+---
+
+<CodeSurfer>
+
+```shell title="dotenv"
+npm install dotenv --save
+```
+
+</CodeSurfer>
+
+---
+
+<span style="color: lightgray;">/.env</span>
+<pre>
+API_KEY=12345<br/>
+CLIENT_ID=lets-code-id
+</pre>
+
+---
+
+<CodeSurfer>
+
+```js title="dotenv"
+require('dotenv').config();
+```
+
+```js title="dotenv"
+require('dotenv')
+  .config({ override: true });
+```
+
+```js title="dotenv"
+process.env = {
+  API_KEY: '12345',
+  CLIENT_ID: 'lets-code-id',
+}
+```
+
+```js title="dotenv"
+require('dotenv').config();
+
+function vazarSegredos() {
+  console.log();
+}
+```
+
+```js title="dotenv"
+require('dotenv').config();
+
+function vazarSegredos() {
+  console.log(
+    'Minha API_KEY é',
+    process.env.API_KEY,
+  );
+}
+```
+
+```js title="dotenv"
+require('dotenv').config();
+const axios = require('axios').default;
+```
+
+```js title="dotenv"
+require('dotenv').config();
+const axios = require('axios').default;
+
+axios
+  .get();
+```
+
+```js title="dotenv"
+require('dotenv').config();
+const axios = require('axios').default;
+
+axios
+  .get(URL);
+```
+
+```js title="dotenv"
+require('dotenv').config();
+const axios = require('axios').default;
+
+axios
+  .get(
+    URL,
+    {
+      'Authorization': process.env.API_KEY
+    }
+  );
+```
+
+</CodeSurfer>
+
+---
+
+<Block>
+  <ul>
+    <li>Criar um arquivo .env e adicionar uma variável NOME</li>
+    <li>Criar um arquivo .js e imprimir essa variável</li>
+    <li>Criar variável de ambiente com <span style="color: #e5b423;">export SOBRENOME=Wayne</span></li>
+    <li>Imprimir essa variável SOBRENOME</li>
+    <li>Sobrescrever SOBRENOME no dotenv e imprimir valor novo</li>
+  </ul>
+</Block>
+
+---
+
+# Luxon
+
+---
+
+<CodeSurfer>
+
+```js title="luxon"
+npm i luxon
+```
+
+</CodeSurfer>
+
+---
+
+<span style="font-size: 10rem;">DateTime</span>
+<span>Representa um momento no tempo em milisegundos</span>
+
+---
+
+<CodeSurfer>
+
+```js title="luxon"
+const { DateTime } = require('luxon');
+```
+
+```js title="luxon"
+const { DateTime } = require('luxon');
+const dt = DateTime.now();
+```
+
+```js title="luxon"
+const { DateTime } = require('luxon');
+const dt = DateTime.local();
+```
+
+```js title="luxon"
+const { DateTime } = require('luxon');
+const dt = DateTime.local(2017, 5, 15, 8, 30);
+// May 15, 2017 at 8:30
+```
+
+```js title="luxon"
+const { DateTime } = require('luxon');
+const dt = DateTime.fromISO('2017-05-15');
+// May 15, 2017 à meia noite
+```
+
+```js title="luxon"
+const dt = DateTime.now();
+```
+
+```js title="luxon"
+const dt = DateTime.now();
+dt.toLocaleString(
+  DateTime.DATETIME_MED_WITH_WEEKDAY
+)
+```
+
+```js title="luxon"
+DATETIME_FULL
+DATETIME_FULL_WITH_SECONDS
+DATE_HUGE
+...
+```
+
+```js title="luxon"
+const dt = DateTime.now();
+dt.toLocaleString();
+```
+
+```js title="luxon"
+const dt = DateTime.now();
+dt
+  .toLocaleString({
+    weekday: 'long',
+    era: 'long',
+    day: '2-digit',
+  });
+
+// 08 Tuesday Anno Domini
+```
+
+```js title="luxon"
+const dt = DateTime.now();
+dt
+  .setLocale('pt-BR')
+  .toLocaleString({
+    weekday: 'long',
+    era: 'long',
+    day: '2-digit',
+  });
+
+// depois de Cristo terça-feira, 08
+```
+
+```js title="luxon"
+const dt = DateTime.now();
+const natalNoBrasil = DateTime.fromObject();
+```
+
+```js title="luxon"
+const dt = DateTime.now();
+const natalNoBrasil = (
+  DateTime
+    .fromObject(
+
+    )
+);
+```
+
+```js title="luxon"
+const dt = DateTime.now();
+const natalNoBrasil = (
+  DateTime
+    .fromObject(
+      config,
+      timezone,
+    )
+);
+```
+
+```js title="luxon"
+const dt = DateTime.now();
+const natalNoBrasil = (
+  DateTime
+    .fromObject(
+      { day: 24, month: 12 },
+      { zone: 'America/Sao_Paulo' },
+    )
+);
+```
+
+```js title="luxon"
+const dt = DateTime.now();
+const natalNoBrasil = (
+  DateTime
+    .fromObject(
+      { day: 24, month: 12 },
+      { zone: 'America/Sao_Paulo' },
+    )
+);
+
+const reveillon = natalNoBrasil.plus();
+```
+
+```js title="luxon"
+const dt = DateTime.now();
+const natalNoBrasil = (
+  DateTime
+    .fromObject(
+      { day: 24, month: 12 },
+      { zone: 'America/Sao_Paulo' },
+    )
+);
+
+const reveillon = (
+  natalNoBrasil
+    .plus({
+      days: 7,
+      hours: 23,
+      minutes: 59,
+    })
+);
+```
+
+```js title="luxon"
+const dt = DateTime.now();
+const natalNoBrasil = (
+  DateTime
+    .fromObject(
+      { day: 24, month: 12 },
+      { zone: 'America/Sao_Paulo' },
+    )
+);
+
+const reveillon = (
+  natalNoBrasil
+    .plus({
+      days: 7,
+      hours: 23,
+      minutes: 59,
+    })
+)
+
+reveillon.toString();
+// 2022-12-31T23:59:00.000-03:00
+```
+
+</CodeSurfer>
+
+---
+
+https://tc39.es/ecma402/#table-datetimeformat-components
+
+---
+
+<Block>
+  <h1>Exercicio</h1>
+  <ul>
+    <li>Criar e imprimir o dia de ontem</li>
+    <li>Criar o dia 5 do mês de julho desse ano às 15h usando o método fromObject</li>
+    <li>Imprimir, em alemão, o dia da semana da data 15 dias antes da véspera de natal de 1980</li>
+  </ul>
+</Block>
+
+---
+
+<h1 style="font-family: 'Old Standard TT'; color: red;">Crypto</h1>
+
+---
+
+<CodeSurfer>
+
+```js title="crypto"
+myCrypto.encrypt('Deus perdoe essas pessoas ruins');
+```
+
+```js title="crypto"
+myCrypto.encrypt('Deus perdoe essas pessoas ruins');
+// 398507ae3068e727fdcc1f1bf8550858
+```
+
+```js title="crypto"
+myCrypto.decrypt('398507ae3068e727fdcc1f1bf8550858');
+```
+
+```js title="crypto"
+myCrypto.decrypt('398507ae3068e727fdcc1f1bf8550858');
+// Deus perdoe essas pessoas ruins
+```
+
+```js title="crypto"
+const crypto = require('crypto');
+```
+
+```js title="crypto"
+const crypto = require('crypto');
+
+class MyCrypto {}
+```
+
+```js title="crypto"
+const crypto = require('crypto');
+
+class MyCrypto {
+  constructor(password) {
+    this.password = password;
+  }
+}
+```
+
+```js title="crypto"
+const crypto = require('crypto');
+
+class MyCrypto {
+  constructor(password) {
+    this._key =
+  }
+}
+```
+
+```js title="crypto"
+const crypto = require('crypto');
+
+class MyCrypto {
+  constructor(password) {
+    this._key = crypto.createHash('sha256');
+  }
+}
+```
+
+```js title="crypto"
+const crypto = require('crypto');
+
+class MyCrypto {
+  constructor(password) {
+    this._key = crypto.createHash('sha256').update(password);
+  }
+}
+```
+
+```js title="crypto"
+const crypto = require('crypto');
+
+class MyCrypto {
+  constructor(password) {
+    this._key = crypto.createHash('sha256').update(password).digest();
+  }
+}
+```
+
+```js title="crypto"
+const crypto = require('crypto');
+
+class MyCrypto {
+  constructor(password) {
+    this._key = crypto.createHash('sha256').update(password).digest();
+  }
+
+  _createCipher(key) {
+    const initializationVector = Buffer.allocUnsafe(16);
+    return crypto.createCipheriv('aes256', key, initializationVector);
+  }
+}
+```
+
+```js title="crypto"
+const crypto = require('crypto');
+
+class MyCrypto {
+  constructor(password) {
+    this._key = crypto.createHash('sha256').update(password).digest();
+  }
+
+  _createCipher(key) {
+    const initializationVector = Buffer.allocUnsafe(16);
+    return crypto.createCipheriv('aes256', key, initializationVector);
+  }
+
+  encrypt(msg) {
+    const cipher = this._createCipher(this._key);
+  }
+}
+```
+
+```js title="crypto"
+const crypto = require('crypto');
+
+class MyCrypto {
+  constructor(password) {
+    this._key = crypto.createHash('sha256').update(password).digest();
+  }
+
+  _createCipher(key) {
+    const initializationVector = Buffer.allocUnsafe(16);
+    return crypto.createCipheriv('aes256', key, initializationVector);
+  }
+
+  encrypt(msg) {
+    const cipher = this._createCipher(this._key);
+
+    let encrypted = '';
+    encrypted += cipher.update(msg, 'binary', 'hex');
+    encrypted += cipher.final('hex');
+
+    return encrypted;
+  }
+}
+```
+
+```js title="crypto"
+const myCrypto = new Crypto('senha bolada!');
+myCrypto.encrypt('uma mensagem secreta');
+```
+
+```js title="crypto"
+const myCrypto = new Crypto('senha bolada!');
+myCrypto.encrypt('uma mensagem secreta');
+// 0aa24993db4361d510716a53cf26d8d14e68936c8f7fd60d7327c79b64ed6dc1
+```
+
+```js title="crypto"
+const crypto = require('crypto');
+
+class MyCrypto {
+  constructor(password) {
+    this._key = crypto.createHash('sha256').update(password).digest();
+  }
+
+  _createCipher(key) {
+    const initializationVector = Buffer.allocUnsafe(16);
+    return crypto.createCipheriv('aes256', key, initializationVector);
+  }
+
+  encrypt(msg) {
+    const cipher = this._createCipher(this._key);
+
+    let encrypted = '';
+    encrypted += cipher.update(msg, 'binary', 'hex');
+    encrypted += cipher.final('hex');
+
+    return encrypted;
+  }
+}
+```
+
+```js title="crypto"
+const crypto = require('crypto');
+
+class MyCrypto {
+  constructor(password) {
+    this._key = crypto.createHash('sha256').update(password).digest();
+  }
+
+  _createCipher(key) {
+    const initializationVector = Buffer.allocUnsafe(16);
+    return crypto.createCipheriv('aes256', key, initializationVector);
+  }
+
+  encrypt(msg) {
+    const cipher = this._createCipher(this._key);
+
+    let encrypted = '';
+    encrypted += cipher.update(msg, 'binary', 'hex');
+    encrypted += cipher.final('hex');
+
+    return encrypted;
+  }
+
+  _createDecipher(key) {
+    const initializationVector = Buffer.allocUnsafe(16);
+    return crypto.createDecipheriv('aes256', key, initializationVector);
+  }
+}
+```
+
+```js title="crypto"
+const crypto = require('crypto');
+
+class MyCrypto {
+  constructor(password) {
+    this._key = crypto.createHash('sha256').update(password).digest();
+  }
+
+  _createCipher(key) {
+    const initializationVector = Buffer.allocUnsafe(16);
+    return crypto.createCipheriv('aes256', key, initializationVector);
+  }
+
+  encrypt(msg) {
+    const cipher = this._createCipher(this._key);
+
+    let encrypted = '';
+    encrypted += cipher.update(msg, 'binary', 'hex');
+    encrypted += cipher.final('hex');
+
+    return encrypted;
+  }
+
+  _createDecipher(key) {
+    const initializationVector = Buffer.allocUnsafe(16);
+    return crypto.createDecipheriv('aes256', key, initializationVector);
+  }
+
+  decrypt(hash) {
+    const decipher = this._createDecipher(this._key);
+
+    let decrypted = '';
+    decrypted += decipher.update(hash, 'hex', 'binary')
+    decrypted += decipher.final('binary');
+
+    return decrypted;
+  }
+}
+```
+
+```js title="crypto"
+myCrypto.decrypt('0aa24993db4361d510716a53cf26d8d14e68936c8f7fd60d7327c79b64ed6dc1');
+// uma mensagem secreta
+```
+
+</CodeSurfer>
+
+---
+
+<Block>
+  <a href="https://www.npmjs.com/package/aes256">https://www.npmjs.com/package/aes256</a><br/><br/>
+  Simplifica o modulo de crypto para criptografia AES-256 com vetores de inicialização randomicos
+  <pre>npm i aes256</pre>
+</Block>
+
+---
+
+<CodeSurfer>
+
+```js title="aes256"
+const aes256 = require('aes256');
+```
+
+```js title="aes256"
+const aes256 = require('aes256');
+const senha = 'letscode2022';
+```
+
+```js title="aes256"
+const aes256 = require('aes256');
+const senha = 'letscode2022';
+const mensagem = 'harry é a última relíquia';
+```
+
+```js title="aes256"
+const aes256 = require('aes256');
+const senha = 'letscode2022';
+const mensagem = 'harry é a última relíquia';
+
+const mensagemCriptografada = aes256.encrypt(senha, mensagem);
+```
+
+```js title="aes256"
+const aes256 = require('aes256');
+const senha = 'letscode2022';
+const mensagem = 'harry é a última relíquia';
+
+const mensagemCriptografada = aes256.encrypt(senha, mensagem);
+// RwVRis0ZDmUM8w9M98f/LCEwpvI3MNUYv4O9FeOoTqW1CFyWgQLkjNDMQKM=
+```
+
+```js title="aes256"
+const aes256 = require('aes256');
+const senha = 'letscode2022';
+
+const mensagemDescriptografada = (
+  aes256.decrypt(
+    senha,
+    'RwVRis0ZDmUM8w9M98f/LCEwpvI3MNUYv4O9FeOoTqW1CFyWgQLkjNDMQKM=',
+  )
+);
+```
+
+```js title="aes256"
+const aes256 = require('aes256');
+const senha = 'letscode2022';
+
+const mensagemDescriptografada = (
+  aes256.decrypt(
+    senha,
+    'RwVRis0ZDmUM8w9M98f/LCEwpvI3MNUYv4O9FeOoTqW1CFyWgQLkjNDMQKM=',
+  )
+);
+// 'harry é a última relíquia'
+```
+
+</CodeSurfer>
+
+---
+
+<Block>
+  <h1>Exercicio</h1>
+  <ul>
+    <li>Descriptografar a seguinte mensagem usando aes256: <br/><span style="font-size: 2.5rem; color: green;">SLSNLsMKtcBRhq2Ppyu4TYDxtVk2nZ4hQq7CMsRFbMamJQSGK4NBwA==</span></li>
+    <br/>
+    <li>Criptografar a seguinte mensagem: <span style="color: yellow;">Bora Node.js</span></li>
+  </ul>
+</Block>
